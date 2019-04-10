@@ -9501,6 +9501,22 @@ item []:
                     self.play_video()
             return
 
+        # control velocity with + and -
+        if ek == Qt.Key_Plus:
+            if self.pj[OBSERVATIONS][self.observationId][TYPE] in [MEDIA]:
+                self.video_faster_activated()
+            return
+
+        if ek == Qt.Key_Minus:
+            if self.pj[OBSERVATIONS][self.observationId][TYPE] in [MEDIA]:
+                self.video_slower_activated()
+            return
+
+        if ek == Qt.Key_Equal:
+            if self.pj[OBSERVATIONS][self.observationId][TYPE] in [MEDIA]:
+                self.video_normalspeed_activated()
+            return
+
         # frame-by-frame mode
         if self.playMode == FFMPEG:
             if ek == 47 or ek == Qt.Key_Left:   # /   one frame back
